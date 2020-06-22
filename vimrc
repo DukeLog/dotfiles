@@ -40,6 +40,8 @@ set gdefault            	    " Use 'g' flag by default with :s/foo/bar/.
 set splitbelow                  " Horizontal split below current.
 set splitright                  " Vertical split to right of current.
 set hidden
+set clipboard=unnamed           " Clipboard sharing w/ os
+set mouse=a                     " Select text and move between panes w/ mouse
 if !&scrolloff
   set scrolloff=3               " Show next 3 lines while scrolling.
 endif
@@ -60,7 +62,7 @@ colorscheme gruvbox
 map <C-n> :NERDTreeToggle<CR>
 
 " Gitgutter config
-set updatetime=500
+set updatetime=500 " Update modification column every 500ms
 autocmd VimEnter * GitGutterLineNrHighlightsEnable
 let g:gitgutter_max_signs = -1
 

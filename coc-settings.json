@@ -1,0 +1,15 @@
+{
+  "languageserver": {
+    "go": {
+      "command": "/Users/dukelog/Projects/go/bin/gopls",
+      "rootPatterns": ["go.mod", ".vim/", ".git/"],
+      "trace.server": "verbose",
+      "initializationOptions": {
+        "usePlaceholders": true,
+        "completeUnimported": true,
+        "deepCompletion": true
+      },
+      "filetypes": ["go"]
+    }
+  }
+}

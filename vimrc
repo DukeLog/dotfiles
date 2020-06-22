@@ -60,17 +60,14 @@ map <C-n> :NERDTreeToggle<CR>
 
 " Gitgutter config
 set updatetime=500
-GitGutterLineNrHighlightsEnable
+autocmd VimEnter * GitGutterLineNrHighlightsEnable
 let g:gitgutter_max_signs = -1
-function! GitStatus()
-  let [a,m,r] = GitGutterGetHunkSummary()
-  return printf('+%d ~%d -%d', a, m, r)
-endfunction
 
 " Airline configuration and theme
 let g:airline_theme='gruvbox'
 let g:airline_powerline_fonts = 1
-let g:airline_section_b = '%{getcwd()}'                " in section B of the status line display the CWD
+let g:airline#extensions#branch#enabled = 1
+let g:airline_section_c = '%{getcwd()}'                " in section C of the status line display the CWD
 let g:airline#extensions#tabline#enabled = 1           " enable airline tabline
 let g:airline#extensions#tabline#show_close_button = 0 " remove 'X' at the end of the tabline                                          
 let g:airline#extensions#tabline#tabs_label = ''       " can put text here like BUFFERS to denote buffers (I clear it so nothing is shown)

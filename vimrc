@@ -17,6 +17,7 @@ NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'neoclide/coc.nvim', 'release', { 'build': { 'others': 'git checkout release' } }
+NeoBundle 'fatih/vim-go'
 call neobundle#end()
 
 NeoBundleCheck " prompt install 'missed' plugins on startup
@@ -84,6 +85,21 @@ let g:airline#extensions#tabline#tab_min_count = 2     " minimum of 2 tabs neede
 let g:airline#extensions#tabline#show_splits = 0       " disables the buffer name that displays on the right of the tabline
 let g:airline#extensions#tabline#show_tab_nr = 1       " disable tab numbers
 let g:airline#extensions#tabline#show_tab_type = 0     " disables the weird ornage arrow on the tabline
+
+" Vim-go configuration
+ let g:go_fold_enable = ['block', 'import', 'varconst', 'package_comment'] " fold all except comment
+ let g:go_highlight_array_whitespace_error = 1 " Highlight white space after `[]`
+ let g:go_highlight_chan_whitespace_error = 1 " Highlight white space around the receive operator
+ let g:go_highlight_extra_types = 1 " Highlight commonly used library types 
+ let g:go_highlight_trailing_whitespace_error = 1 " Highlight trailing white space.
+ let g:go_highlight_operators = 1 " Highlight operators such as `:=` , `==`, `-=`, etc.
+ let g:go_highlight_functions = 1 " Highlight function and method declarations.
+ let g:go_highlight_function_parameters = 1 " Highlight the variable names in parameters (including named return parameters)
+ let g:go_highlight_function_calls = 1 " Highlight function and method calls.
+ let g:go_highlight_types = 1 " Highlight struct and interface names.
+ let g:go_highlight_fields = 1 " Highlight struct field names.
+ let g:go_highlight_variable_declarations = 1 "Highlight variable names in variable declarations
+ let g:go_highlight_variable_assignments = 1 " Highlight variable names in variable assignments (`x` in `x =`).
 
 " Leader keys
 let mapleader='z'

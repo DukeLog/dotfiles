@@ -39,6 +39,7 @@ set tabstop=4 shiftwidth=4 expandtab
 set gdefault            	    " Use 'g' flag by default with :s/foo/bar/.
 set splitbelow                  " Horizontal split below current.
 set splitright                  " Vertical split to right of current.
+set hidden
 if !&scrolloff
   set scrolloff=3               " Show next 3 lines while scrolling.
 endif
@@ -80,3 +81,13 @@ let g:airline#extensions#tabline#tab_min_count = 2     " minimum of 2 tabs neede
 let g:airline#extensions#tabline#show_splits = 0       " disables the buffer name that displays on the right of the tabline
 let g:airline#extensions#tabline#show_tab_nr = 1       " disable tab numbers
 let g:airline#extensions#tabline#show_tab_type = 0     " disables the weird ornage arrow on the tabline
+
+" Leader keys
+let mapleader='z'
+let maplocalleader='\'
+
+" Buffers keys mapping
+nmap <leader>l :bnext<CR>| " Move to the next buffer
+nmap <leader>h :bprevious<CR>| " Move to the previous buffer
+nmap <leader>bq :bp <BAR> bd #<CR>| " Close the current buffer and move to the previous one
+nmap <leader>bl :ls<CR>| " Show all open buffers and their status

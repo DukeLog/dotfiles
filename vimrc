@@ -16,6 +16,7 @@ NeoBundle 'vim-airline/vim-airline'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'airblade/vim-gitgutter'
+NeoBundle 'neoclide/coc.nvim', 'release', { 'build': { 'others': 'git checkout release' } }
 call neobundle#end()
 
 NeoBundleCheck " prompt install 'missed' plugins on startup

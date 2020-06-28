@@ -15,6 +15,7 @@ NeoBundle 'morhetz/gruvbox'
 NeoBundle 'vim-airline/vim-airline'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'idanarye/vim-merginal'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'neoclide/coc.nvim', 'release', { 'build': { 'others': 'git checkout release' } }
@@ -71,6 +72,7 @@ let NERDTreeIgnore=['\.DS_Store$', '\.git$'] " ignore files in nerd tree
 set updatetime=500 " Update modification column every 500ms
 autocmd VimEnter * GitGutterLineNrHighlightsEnable
 let g:gitgutter_max_signs = -1
+command! GitUpdate :Git remote update origin --prune| " Update git remote and clean stale branches 
 
 " Airline configuration and theme
 let g:airline_theme='gruvbox'

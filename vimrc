@@ -15,6 +15,7 @@ NeoBundle 'morhetz/gruvbox'
 NeoBundle 'vim-airline/vim-airline'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'tpope/vim-surround'
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'neoclide/coc.nvim', 'release', { 'build': { 'others': 'git checkout release' } }
 NeoBundle 'fatih/vim-go'
@@ -41,7 +42,7 @@ set tabstop=4 shiftwidth=4 expandtab
 set gdefault            	    " Use 'g' flag by default with :s/foo/bar/.
 set splitbelow                  " Horizontal split below current.
 set splitright                  " Vertical split to right of current.
-set hidden
+set hidden                      " Allow to hide buffers
 set clipboard=unnamed           " Clipboard sharing w/ os
 set mouse=a                     " Select text and move between panes w/ mouse
 if !&scrolloff
@@ -57,6 +58,7 @@ endif
 " Theme, fonts and colors
 let g:gruvbox_italic=1
 let g:gruvbox_contrast_dark='hard'
+set termguicolors " Make colors great again :)
 colorscheme gruvbox
 
 
@@ -94,7 +96,7 @@ let g:go_metalinter_enabled = [] " disable all linters so --disable-all will not
 let g:go_fold_enable = ['block', 'import', 'varconst', 'package_comment'] " fold all except comment
 let g:go_highlight_array_whitespace_error = 1 " Highlight white space after `[]`
 let g:go_highlight_chan_whitespace_error = 1 " Highlight white space around the receive operator
-let g:go_highlight_extra_types = 1 " Highlight commonly used library types 
+let g:go_highlight_extra_types = 1 " Highlight commonly used library types
 let g:go_highlight_trailing_whitespace_error = 1 " Highlight trailing white space.
 let g:go_highlight_operators = 1 " Highlight operators such as `:=` , `==`, `-=`, etc.
 let g:go_highlight_functions = 1 " Highlight function and method declarations.

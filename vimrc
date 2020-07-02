@@ -20,6 +20,7 @@ NeoBundle 'tpope/vim-surround'
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'neoclide/coc.nvim', 'release', { 'build': { 'others': 'git checkout release' } }
 NeoBundle 'fatih/vim-go'
+NeoBundle 'chr4/nginx.vim'
 call neobundle#end()
 
 NeoBundleCheck " prompt install 'missed' plugins on startup
@@ -72,7 +73,7 @@ let NERDTreeIgnore=['\.DS_Store$', '\.git$'] " ignore files in nerd tree
 set updatetime=500 " Update modification column every 500ms
 autocmd VimEnter * GitGutterLineNrHighlightsEnable
 let g:gitgutter_max_signs = -1
-command! GitUpdate :Git remote update origin --prune| " Update git remote and clean stale branches 
+command! GitUpdate :Git remote update origin --prune| " Update git remote and clean stale branches
 
 " Airline configuration and theme
 let g:airline_theme='gruvbox'
@@ -94,8 +95,11 @@ let g:airline#extensions#tabline#show_tab_type = 0     " disables the weird orna
 
 " Vim-go configuration
 let g:go_metalinter_command = 'golangci-lint'
+let g:go_fmt_command = 'goimports' " auto add imports on save
+let g:go_auto_type_info = 1 " show variable type in status line
 let g:go_metalinter_enabled = [] " disable all linters so --disable-all will not added
 let g:go_fold_enable = ['block', 'import', 'varconst', 'package_comment'] " fold all except comment
+let g:go_auto_sameids = 1 " highlight same variables
 let g:go_highlight_array_whitespace_error = 1 " Highlight white space after `[]`
 let g:go_highlight_chan_whitespace_error = 1 " Highlight white space around the receive operator
 let g:go_highlight_extra_types = 1 " Highlight commonly used library types

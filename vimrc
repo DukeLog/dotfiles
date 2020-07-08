@@ -45,7 +45,7 @@ set gdefault            	    " Use 'g' flag by default with :s/foo/bar/.
 set splitbelow                  " Horizontal split below current.
 set splitright                  " Vertical split to right of current.
 set hidden                      " Allow to hide buffers
-set clipboard=unnamed           " Clipboard sharing w/ os
+set clipboard+=unnamedplus      " Clipboard sharing w/ os
 set mouse=a                     " Select text and move between panes w/ mouse
 if !&scrolloff
   set scrolloff=3               " Show next 3 lines while scrolling.
@@ -56,6 +56,7 @@ endif
 if maparg('<C-L>', 'n') ==# ''	" Use <C-L> to clear the highlighting of :set hlsearch.
   nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
 endif
+tnoremap <Esc> <C-\><C-n>| " Esc to exit internal terminal
 
 " Theme, fonts and colors
 let g:gruvbox_italic=1
@@ -99,7 +100,6 @@ let g:go_fmt_command = 'goimports' " auto add imports on save
 let g:go_auto_type_info = 1 " show variable type in status line
 let g:go_metalinter_enabled = [] " disable all linters so --disable-all will not added
 let g:go_fold_enable = ['block', 'import', 'varconst', 'package_comment'] " fold all except comment
-let g:go_auto_sameids = 1 " highlight same variables
 let g:go_highlight_array_whitespace_error = 1 " Highlight white space after `[]`
 let g:go_highlight_chan_whitespace_error = 1 " Highlight white space around the receive operator
 let g:go_highlight_extra_types = 1 " Highlight commonly used library types

@@ -56,7 +56,11 @@ endif
 if maparg('<C-L>', 'n') ==# ''	" Use <C-L> to clear the highlighting of :set hlsearch.
   nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
 endif
+
+" Terminal improvements
+autocmd BufEnter term://* startinsert| " Enter insert mode on terminal buffer switch
 tnoremap <Esc> <C-\><C-n>| " Esc to exit internal terminal
+tnoremap <C-w> <C-\><C-n><C-w>| " Move between windows doesn't need Esc
 
 " Theme, fonts and colors
 let g:gruvbox_italic=1

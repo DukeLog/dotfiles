@@ -21,6 +21,9 @@ NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'neoclide/coc.nvim', 'release', { 'build': { 'others': 'git checkout release' } }
 NeoBundle 'fatih/vim-go'
 NeoBundle 'chr4/nginx.vim'
+NeoBundle 'chuling/equinusocio-material.vim'
+NeoBundle 'junegunn/fzf.vim'
+NeoBundle 'vim-syntastic/syntastic'
 call neobundle#end()
 
 NeoBundleCheck " prompt install 'missed' plugins on startup
@@ -57,22 +60,54 @@ if maparg('<C-L>', 'n') ==# ''	" Use <C-L> to clear the highlighting of :set hls
   nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
 endif
 
+" Leader keys
+nnoremap <SPACE> <Nop>
+let mapleader=' '
+let maplocalleader='\'
+autocmd FileType qf if mapcheck('<esc>', 'n') ==# '' | nnoremap <buffer><silent> <esc> :cclose<bar>lclose<CR> | endif
+
 " Terminal improvements
 autocmd BufEnter term://* startinsert| " Enter insert mode on terminal buffer switch
-tnoremap <Esc> <C-\><C-n>| " Esc to exit internal terminal
+if has("nvim")
+  au TermOpen * tnoremap <buffer> <Esc> <c-\><c-n>
+endif
+"tnoremap <Esc> <C-\><C-n>| " Esc to exit internal terminal
 tnoremap <C-w> <C-\><C-n><C-w>| " Move between windows doesn't need Esc
 
-" Theme, fonts and colors
-let g:gruvbox_italic=1
-let g:gruvbox_contrast_dark='hard'
-set termguicolors " Make colors great again :)
-colorscheme gruvbox
-
+set termguicolors
+let g:equinusocio_material_style = 'pure'
+let g:equinusocio_material_hide_vertsplit = 1
+let g:equinusocio_material_bracket_improved = 1
+set fillchars+=vert:│
+colorscheme equinusocio_material
+let g:airline_theme = 'equinusocio_material'
 
 " Nerdtree config
 map <C-n> :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1 " show hidden files
 let NERDTreeIgnore=['\.DS_Store$', '\.git$'] " ignore files in nerd tree
+
+" Fuzzy search config
+set rtp+=/usr/local/opt/fzf
+let g:fzf_buffers_jump = 1
+let g:fzf_nvim_statusline = 0 " disable statusline overwriting
+if has("nvim")
+  au FileType fzf tunmap <buffer> <Esc>
+endif
+nnoremap <silent> <leader>e :Buffers<CR>
+nnoremap <leader><leader> :Ag<CR>
+nnoremap <silent> <leader>n :GFiles<CR>
+
+" Syntastic config
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_go_checkers = ['go','gofmt']
 
 " Gitgutter config
 set updatetime=500 " Update modification column every 500ms
@@ -81,7 +116,6 @@ let g:gitgutter_max_signs = -1
 command! GitUpdate :Git remote update origin --prune| " Update git remote and clean stale branches
 
 " Airline configuration and theme
-let g:airline_theme='gruvbox'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#branch#enabled = 1
 let g:airline_section_c = '%{getcwd()}'                " in section C of the status line display the CWD
@@ -101,6 +135,8 @@ let g:airline#extensions#tabline#show_tab_type = 0     " disables the weird orna
 " Vim-go configuration
 let g:go_metalinter_command = 'golangci-lint'
 let g:go_fmt_command = 'goimports' " auto add imports on save
+"let g:go_metalinter_autosave=1
+"let g:go_metalinter_autosave_enabled=[]
 let g:go_auto_type_info = 1 " show variable type in status line
 let g:go_metalinter_enabled = [] " disable all linters so --disable-all will not added
 let g:go_fold_enable = ['block', 'import', 'varconst', 'package_comment'] " fold all except comment
@@ -116,10 +152,9 @@ let g:go_highlight_types = 1 " Highlight struct and interface names.
 let g:go_highlight_fields = 1 " Highlight struct field names.
 let g:go_highlight_variable_declarations = 1 "Highlight variable names in variable declarations
 let g:go_highlight_variable_assignments = 1 " Highlight variable names in variable assignments (`x` in `x =`).
+" let g:go_highlight_diagnostic_errors = 1
+" let g:go_highlight_diagnostic_warnings = 1
 
-" Leader keys
-let mapleader='z'
-let maplocalleader='\'
 
 " Buffers keys mapping
 nmap <leader>l :bnext<CR>| " Move to the next buffer

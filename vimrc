@@ -67,7 +67,10 @@ endif
 nnoremap <SPACE> <Nop>
 let mapleader=' '
 let maplocalleader='\'
-autocmd FileType qf if mapcheck('<esc>', 'n') ==# '' | nnoremap <buffer><silent> <esc> :cclose<bar>lclose<CR> | endif
+autocmd FileType qf if mapcheck('<esc>', 'n') ==# '' | nnoremap <buffer><silent> <esc> :cclose<bar>lclose<CR> | endif| " Esc to exit from quickfix
+inoremap {<TAB> {<CR>}<Esc>ko<tab>| "Auto close { bracket
+inoremap [<TAB> []<Esc>i| "Auto close [ bracket
+inoremap (<TAB> ()<Esc>i| "Auto close ( bracket
 
 " Terminal improvements
 autocmd BufEnter term://* startinsert| " Enter insert mode on terminal buffer switch

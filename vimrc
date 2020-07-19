@@ -24,6 +24,9 @@ NeoBundle 'chr4/nginx.vim'
 NeoBundle 'chuling/equinusocio-material.vim'
 NeoBundle 'junegunn/fzf.vim'
 NeoBundle 'vim-syntastic/syntastic'
+NeoBundle 'SirVer/ultisnips'
+NeoBundle 'honza/vim-snippets'
+
 call neobundle#end()
 
 NeoBundleCheck " prompt install 'missed' plugins on startup
@@ -161,3 +164,8 @@ nmap <leader>l :bnext<CR>| " Move to the next buffer
 nmap <leader>h :bprevious<CR>| " Move to the previous buffer
 nmap <leader>bq :bp <BAR> bd #<CR>| " Close the current buffer and move to the previous one
 nmap <leader>bl :ls<CR>| " Show all open buffers and their status
+
+" Snippets config
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"

@@ -53,6 +53,8 @@ set splitright                  " Vertical split to right of current.
 set hidden                      " Allow to hide buffers
 set clipboard+=unnamedplus      " Clipboard sharing w/ os
 set mouse=a                     " Select text and move between panes w/ mouse
+set listchars=eol:¬,tab:\ \     " Set pretty eol sign
+set list                        " Show whitespaces
 if !&scrolloff
   set scrolloff=3               " Show next 3 lines while scrolling.
 endif
@@ -113,7 +115,7 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-let g:syntastic_go_checkers = ['go','gofmt']
+let g:syntastic_go_checkers = ['go','gofmt', 'golint']
 
 " Gitgutter config
 set updatetime=500 " Update modification column every 500ms

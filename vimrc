@@ -141,24 +141,22 @@ let g:airline#extensions#tabline#show_tab_type = 0     " disables the weird orna
 
 " Vim-go configuration
 let g:go_metalinter_command = 'golangci-lint'
-let g:go_fmt_command = 'goimports' " auto add imports on save
-"let g:go_metalinter_autosave=1
-"let g:go_metalinter_autosave_enabled=[]
-let g:go_auto_type_info = 1 " show variable type in status line
-let g:go_metalinter_enabled = [] " disable all linters so --disable-all will not added
-let g:go_fold_enable = ['block', 'import', 'varconst', 'package_comment'] " fold all except comment
-let g:go_highlight_array_whitespace_error = 1 " Highlight white space after `[]`
-let g:go_highlight_chan_whitespace_error = 1 " Highlight white space around the receive operator
-let g:go_highlight_extra_types = 1 " Highlight commonly used library types
-let g:go_highlight_trailing_whitespace_error = 1 " Highlight trailing white space.
-let g:go_highlight_operators = 1 " Highlight operators such as `:=` , `==`, `-=`, etc.
-let g:go_highlight_functions = 1 " Highlight function and method declarations.
-let g:go_highlight_function_parameters = 1 " Highlight the variable names in parameters (including named return parameters)
-let g:go_highlight_function_calls = 1 " Highlight function and method calls.
-let g:go_highlight_types = 1 " Highlight struct and interface names.
-let g:go_highlight_fields = 1 " Highlight struct field names.
-let g:go_highlight_variable_declarations = 1 "Highlight variable names in variable declarations
-let g:go_highlight_variable_assignments = 1 " Highlight variable names in variable assignments (`x` in `x =`).
+let g:go_fmt_command = 'goimports'                                          " auto add imports on save
+let g:go_auto_type_info = 1                                                 " show variable type in status line
+let g:go_metalinter_enabled = []                                            " disable all linters so --disable-all will not added
+let g:go_fold_enable = ['block', 'import', 'varconst', 'package_comment']   " fold all except comment
+let g:go_highlight_array_whitespace_error = 1                               " highlight white space after `[]`
+let g:go_highlight_chan_whitespace_error = 1                                " highlight white space around the receive operator
+let g:go_highlight_extra_types = 1                                          " highlight commonly used library types
+let g:go_highlight_trailing_whitespace_error = 1                            " highlight trailing white space.
+let g:go_highlight_operators = 1                                            " highlight operators such as `:=` , `==`, `-=`, etc.
+let g:go_highlight_functions = 1                                            " highlight function and method declarations.
+let g:go_highlight_function_parameters = 1                                  " highlight the variable names in parameters (including named return parameters)
+let g:go_highlight_function_calls = 1                                       " highlight function and method calls.
+let g:go_highlight_types = 1                                                " highlight struct and interface names.
+let g:go_highlight_fields = 1                                               " highlight struct field names.
+let g:go_highlight_variable_declarations = 1                                " highlight variable names in variable declarations
+let g:go_highlight_variable_assignments = 1                                 " highlight variable names in variable assignments (`x` in `x =`).
 
 " Buffers keys mapping
 nmap <leader>l :bnext<CR>| " Move to the next buffer
